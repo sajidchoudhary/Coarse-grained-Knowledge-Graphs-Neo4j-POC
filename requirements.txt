@@ -1,0 +1,13 @@
+langchain==1.2.10
+langchain-core==0.4.1
+langchain-community==1.2.11
+langchain-openai==1.1.9
+
+pypdf==6.7.0
+PyPDF2==3.0.1
+pdfminer.six==20231228
+
+neo4j==5.18.0
+python-dotenv==1.0.1
+streamlit
+faiss-cpu

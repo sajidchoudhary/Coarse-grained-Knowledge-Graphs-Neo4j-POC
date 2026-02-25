@@ -1,0 +1,19 @@
+:use insurancedetail
+
+MATCH (c:Chunk)
+CALL db.index.vector.queryNodes(
+  'graph_store',
+  50,
+  c.embedding
+)
+YIELD node AS other, score
+WHERE
+  score >= 0.70
+  AND elementId(c) < elementId(other)
+MERGE (c)-[:SIMILAR_TO {score: score}]->(other);
+
+
+
+
+MATCH ()-[r:SIMILAR_TO]->()
+DELETE r;
